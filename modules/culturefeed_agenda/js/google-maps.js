@@ -3,7 +3,7 @@
  * Provides google maps functionality.
  */
 
-(function ($, Drupal) {
+(function ($, Drupal, once) {
 
   Drupal.CultureFeed = Drupal.CultureFeed || {};
   Drupal.CultureFeed.Agenda = {};
@@ -28,7 +28,6 @@
     google.maps.event.addListener(marker, 'click', function () {
       infowindow.open(map, marker);
     });
-
   };
 
   /**
@@ -76,10 +75,10 @@
    */
   Drupal.behaviors.culturfeed_agenda_google_maps = {
     attach: function attach(context) {
-      $(context).find('.google-map').once('search-autocomplete').each(function (index, element) {
+      $(once('gm', '.google-map', context)).each(function (index, element) {
         Drupal.CultureFeed.Agenda.initializeMap(element);
       });
     }
   };
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);
