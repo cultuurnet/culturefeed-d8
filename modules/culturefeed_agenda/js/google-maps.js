@@ -3,7 +3,7 @@
  * Provides google maps functionality.
  */
 
-(function ($, Drupal, drupalSettings, once) {
+(function ($, Drupal, once) {
 
   Drupal.CultureFeed = Drupal.CultureFeed || {};
   Drupal.CultureFeed.Agenda = {};
@@ -81,4 +81,4 @@
     }
   };
 
-})(jQuery, Drupal, drupalSettings, once);
+})(jQuery, Drupal, once);
