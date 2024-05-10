@@ -135,7 +135,8 @@ function template_preprocess_culturefeed_event__teaser(array &$variables) {
   $variables['location'] = t('Location to be discussed');
 
   if (!empty($variables['where'])) {
-    if (!empty($variables['where']['address']['city'])) {
+    $city = $variables['where']['address']['city'] ?? NULL;
+    if (NULL !== $city && '---' !== $city) {
       $variables['location'] = $variables['where']['address']['city'];
     }
     elseif ($variables['where']['name']) {
